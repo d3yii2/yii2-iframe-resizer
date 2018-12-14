@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class IFrameResizerAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/iframe-resizer/js';
+    public $sourcePath = '@vendor/bower-asset/iframe-resizer/js';
     public $css = [];
     public $js = [  // Configured conditionally (source/minified) during init()
     ];
@@ -26,6 +26,8 @@ class IFrameResizerAsset extends AssetBundle
 
     public function init()
     {
+        $bowerNamespace = Yii::getAlias('@bower');
+
         parent::init();
         $this->js[] = YII_DEBUG ? 'iframeResizer.js' : 'iframeResizer.min.js';
     }
